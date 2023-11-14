@@ -46,6 +46,7 @@
         "pint": "@php ./vendor/bin/pint --test",
         "format": "@php ./vendor/bin/pint",
         "stan": "./vendor/bin/phpstan analyse",
+        "test": "./vendor/bin/pest",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
