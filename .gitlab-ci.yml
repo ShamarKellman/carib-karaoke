@@ -1,0 +1,35 @@
+image: 'lorisleiva/laravel-docker:8.2'
+
+variables:
+  MYSQL_ROOT_PASSWORD: password
+  MYSQL_DATABASE: testing
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+
+  paths:
+    - vendor/
+
+services:
+  - 'mysql:5.7'
+
+before_script:
+  - cp .env.testing .env
+  - composer install --no-interaction
+  - php artisan key:generate
+  - php artisan migrate:fresh --force
+  - php artisan optimize
+  - chown -R $USER:www-data storage bootstrap/cache
+  - chmod -R 775 storage bootstrap/cache
+
+test:
+  script:
+    - composer test
+
+pint:
+  script:
+    - composer pint
+
+stan:
+  script:
+    - composer stan
