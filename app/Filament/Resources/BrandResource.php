@@ -8,8 +8,8 @@ use App\Filament\Imports\BrandImporter;
 use App\Filament\Resources\BrandResource\Pages;
 use App\Models\Brand;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Actions\ImportAction;
 use Filament\Tables\Table;
@@ -18,12 +18,12 @@ class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-building-office';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema(self::getFields());
+        return $schema
+            ->components(self::getFields());
     }
 
     public static function table(Table $table): Table

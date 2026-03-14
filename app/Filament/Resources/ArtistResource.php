@@ -7,8 +7,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ArtistResource\Pages;
 use App\Models\Artist;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 
@@ -16,12 +16,12 @@ class ArtistResource extends Resource
 {
     protected static ?string $model = Artist::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-circle';
+    protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-user-circle';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema(self::getFields());
+        return $schema
+            ->components(self::getFields());
     }
 
     public static function table(Table $table): Table

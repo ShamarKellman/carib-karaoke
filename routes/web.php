@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
+use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +23,12 @@ Route::get('/search', SearchController::class)->name('search');
 
 Route::middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
+    AuthenticateSession::class,
     'verified',
 ])->group(function () {
     Route::get('/favourites', function () {
         return view('favourites');
     })->name('favourites');
+
+    Route::get('/user/profile', fn () => view('profile.show'))->name('profile.show');
 });
