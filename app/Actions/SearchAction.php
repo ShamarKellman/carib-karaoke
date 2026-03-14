@@ -14,13 +14,14 @@ use Illuminate\Support\Collection;
 
 class SearchAction
 {
-    public function search(string $search, SearchType $type = SearchType::Song): Collection
+    public function search(?string $search, SearchType $type = SearchType::Song): Collection
     {
         return match ($type) {
-            SearchType::Song => $this->searchSong($search),
+            SearchType::Song, SearchType::All => $this->searchSong($search),
             SearchType::Genre => $this->searchGenre($search),
             SearchType::Artist => $this->searchArtist($search),
             SearchType::Brand => $this->searchBrand($search),
+            default => collect(),
         };
     }
 

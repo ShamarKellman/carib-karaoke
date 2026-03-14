@@ -6,6 +6,7 @@ namespace App\Enums;
 
 enum SearchType: string
 {
+    case All = '';
     case Song = 'song';
     case Artist = 'artist';
     case Genre = 'genre';

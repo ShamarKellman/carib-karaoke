@@ -17,7 +17,7 @@ class Search extends Component
     public ?string $search = '';
 
     #[Url(as: 'type')]
-    public string $type;
+    public string $type = '';
 
     private Collection $songs;
 
