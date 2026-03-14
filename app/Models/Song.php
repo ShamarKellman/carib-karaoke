@@ -26,9 +26,12 @@ class Song extends Model
         'genre_id',
     ];
 
-    protected $casts = [
-        'release_year' => 'datetime:Y',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'release_year' => 'datetime:Y',
+        ];
+    }
 
     /**
      * @return BelongsTo<Brand, Song>

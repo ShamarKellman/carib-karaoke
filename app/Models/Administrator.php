@@ -36,12 +36,12 @@ class Administrator extends Authenticatable
         'two_factor_secret',
     ];
 
-    /**
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+        ];
+    }
 
     /**
      * @var array<int, string>

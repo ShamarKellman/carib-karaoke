@@ -9,25 +9,25 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
-        "filament/filament": "^v3.2",
+        "filament/filament": "^3.3",
         "guzzlehttp/guzzle": "^7.8",
-        "laravel/framework": "^11.8",
-        "laravel/jetstream": "^5.1",
+        "laravel/framework": "^12.0",
+        "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9",
+        "laravel/tinker": "^2.10",
         "livewire/livewire": "^3.4",
-        "teamtnt/laravel-scout-tntsearch-driver": "^14.0.0"
+        "teamtnt/laravel-scout-tntsearch-driver": "^15.0.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
+        "laravel/sail": "^1.40",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
-        "nunomaduro/larastan": "^2.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
+        "nunomaduro/larastan": "^3.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
         "spatie/laravel-ignition": "^2.4"
     },
     "autoload": {
@@ -64,7 +64,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "11.x-dev"
+            "dev-master": "12.x-dev"
         },
         "laravel": {
             "dont-discover": []
