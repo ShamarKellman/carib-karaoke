@@ -26,10 +26,6 @@ class Search extends Component
     public function boot(SearchAction $searchAction): void
     {
         $this->searchAction = $searchAction;
-    }
-
-    public function mount(): void
-    {
         $this->songs = new Collection([]);
     }
 
@@ -49,7 +45,7 @@ class Search extends Component
 
     private function getSongs(): void
     {
-        if (strlen($this->search) > 2) {
+        if (strlen($this->search ?? '') > 2) {
             $this->songs = $this->searchAction->search($this->search, SearchType::tryFrom($this->type));
         }
     }
